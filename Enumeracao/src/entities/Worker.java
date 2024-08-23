@@ -19,10 +19,11 @@ public class Worker {
 
 	}
 
-	public Worker(String name, WorkerLevel level, Double baseSalary) {
+	public Worker(String name, WorkerLevel level, Double baseSalary, Departament departament) {
 		this.name = name;
 		this.level = level;
 		this.baseSalary = baseSalary;
+		this.departament = departament;
 	}
 
 	public String getName() {
@@ -73,12 +74,12 @@ public class Worker {
 
 	public double income(int year, int month) {
 		double sum = baseSalary;
-		
-		for(HorContract c : contracts) {
+
+		for (HorContract c : contracts) {
 			int c_year = c.getData().getYear();
 			int c_month = c.getData().getMonthValue();
-			
-			if( year == c_year && month == c_month) {
+
+			if (year == c_year && month == c_month) {
 				sum += c.totalValue();
 			}
 		}
